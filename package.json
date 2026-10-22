@@ -1,0 +1,20 @@
+{
+  "name": "bio-battle",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "생명 기술 대작전 — 교실 실시간 팀 대결 (13~16차시)",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch",
+    "serve": "node test/serve.mjs",
+    "mock": "node test/mockdb.mjs",
+    "test:unit": "node test/unit.mjs",
+    "test:load": "node test/load.mjs",
+    "emu": "npx firebase-tools emulators:start --only database,auth --project demo-bio-battle"
+  },
+  "dependencies": {
+    "esbuild": "^0.25.0",
+    "firebase": "^11.0.0"
+  }
+}

@@ -1,0 +1,18 @@
+node_modules/
+site/dist/
+.netlify/
+.firebase/
+*.log
+.env
+.env.*
+
+# 시험 중에 생기는 것
+test/.auth/
+test/shots*/
+test/playtest*/
+test/site_core/
+test/site14_16/
+test/site_pt14_16/
+test/gallery*/
+.DS_Store
+Thumbs.db
