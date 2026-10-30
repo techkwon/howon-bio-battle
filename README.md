@@ -41,6 +41,20 @@ netlify deploy --prod --no-build --dir site --site <site-id>
 보안은 `site/database.rules.json` 규칙으로 지킨다(학생은 자기 입력 칸에만 쓸 수 있고, 판정은 진행판만 한다).
 규칙은 Firebase 콘솔 → Realtime Database → 규칙 탭에 붙여 넣고 게시한다.
 
+## 내 학교에서 쓰려면
+
+이 저장소의 주소(Netlify · Firebase)는 호원중 수업용이고, 무료 요금제라 **동시 접속 100개**(약 세 반)까지만 된다.
+그리고 Firebase 웹 키가 우리 배포 주소에서만 쓰이게 막혀 있다. 그래서 다른 학교에서는 **자기 Firebase 프로젝트로** 띄워야 한다.
+
+1. [Firebase 콘솔](https://console.firebase.google.com)에서 새 프로젝트 → **Realtime Database** 만들기(지역은 가까운 곳) → **Authentication → 익명** 사용 설정
+2. 프로젝트 설정 → 웹 앱 추가 → 나오는 설정값(`apiKey` · `authDomain` · `databaseURL` · `projectId` 등)으로 `site/src/net-firebase.js` 의 값을 바꾼다
+3. Realtime Database → 규칙 탭에 `site/database.rules.json` 내용을 그대로 붙여 넣고 **게시**
+4. `npm install` → `npm run build` → `site/` 폴더를 Netlify 등 정적 호스팅에 올린다
+5. (권장) 구글 클라우드 콘솔 → API 및 서비스 → 사용자 인증 정보 → 그 브라우저 키에 **웹사이트 제한**으로 내 배포 주소를 넣는다
+
+- 학생 이름은 받지 않는다(방 코드 + 번호). 수업이 끝나면 진행판에서 방을 지운다
+- 무료(Spark) 요금제로 충분하다. 한 번에 세 반 넘게 쓰면 동시 접속 100개에 걸릴 수 있다
+
 ## 개인정보
 
 이름을 받지 않는다 — **방 코드 + 번호(1~30)** 만 쓴다. 수업이 끝나면 방을 지운다.
